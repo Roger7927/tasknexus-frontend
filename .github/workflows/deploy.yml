@@ -1,0 +1,33 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Dispara o workflow sempre que houver um push para o branch 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Usa a última versão do Ubuntu para rodar o job
+
+    steps:
+      - name: Checkout Repository # Passo 1: Clona o repositório
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js # Passo 2: Configura o ambiente Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Define a versão do Node.js a ser usada
+
+      - name: Install Dependencies # Passo 3: Instala as dependências do projeto
+        run: npm install
+
+      - name: Build Project # Passo 4: Constrói o aplicativo Vite para produção
+        run: npm run build
+
+      - name: Deploy to GitHub Pages # Passo 5: Publica o conteúdo da pasta 'dist' no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Token de autenticação fornecido pelo GitHub
+          publish_dir: ./dist # Define a pasta 'dist' como a fonte para publicação
+          publish_branch: gh-pages # Publica em um branch separado 'gh-pages'
+          # Opcional: force_orphan: true # Cria um histórico limpo para o branch gh-pages
