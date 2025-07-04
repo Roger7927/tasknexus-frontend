@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js # Passo 2: Configura o ambiente Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Define a versão do Node.js a ser usada
+          node-version: '20' # <--- Mude para '20'
 
       - name: Install Dependencies # Passo 3: Instala as dependências do projeto
         run: npm install
