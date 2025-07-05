@@ -1,16 +1,18 @@
 {
-  "name": "tasknexus-novo",
-  "version": "0.0.0",
+  "name": "tasknexus-frontend",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://roger7927.github.io/tasknexus-novo/",
-  "type": "module",
   "scripts": {
-    // ... Seus scripts aqui (NÃO ALTERE)
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
-    // ... Suas dependências aqui (NÃO ALTERE)
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    // ... Suas devDependencies aqui (NÃO ALTERE)
+    "vite": "^4.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
   }
 }
