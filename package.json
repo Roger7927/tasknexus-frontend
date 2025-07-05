@@ -1,9 +1,9 @@
 {
   "name": "tasknexus-novo",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
-  "homepage": "https://roger7927.github.io/tasknexus-novo/", // <--- ESTA LINHA É CRUCIAL!
-  "type": "module",
+  "homepage": "https://roger7927.github.io/tasknexus-novo/", // <--- COLOQUE ESTA LINHA EXATAMENTE AQUI!
+  "type": "module", // Esta linha deve vir DEPOIS da homepage
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,17 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    // ... suas dependências
   },
   "devDependencies": {
-    "@types/react": "^18.2.56",
-    "@types/react-dom": "^18.2.19",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.1.4"
+    // ... suas dependências de desenvolvimento
   }
 }

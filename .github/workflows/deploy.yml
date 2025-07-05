@@ -3,7 +3,7 @@ name: Deploy Vite React App to GitHub Pages
 on:
   push:
     branches:
-      - main # Altere para 'master' se o seu branch principal for 'master'
+      - main # MUITO IMPORTANTE: Altere para 'master' se o seu branch principal for 'master'
 
 jobs:
   build-and-deploy:
@@ -16,18 +16,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Use a versão do Node.js que você prefere (20 é boa)
-          cache: 'npm' # Habilita cache para npm install
+          node-version: '20' # Use a versão do Node.js que você prefere (20 é a recomendada)
+          cache: 'npm' # Habilita cache para npm install (acelera o processo)
 
       - name: Install dependencies
         run: npm install
 
       - name: Build React App with Vite
-        run: npm run build # Este comando roda o build do Vite
+        run: npm run build # Este comando roda o build do Vite, criando a pasta 'dist'
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # MUITO IMPORTANTE: Vite constrói para a pasta 'dist'
-          publish_branch: gh-pages # O branch onde o site será publicado
+          publish_dir: ./dist # ONDE O SEU SITE É GERADO (pasta 'dist' para Vite)
+          publish_branch: gh-pages # O BRANCH QUE O GITHUB PAGES VAI LER
