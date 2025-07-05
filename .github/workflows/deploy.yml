@@ -1,37 +1,33 @@
-name: Deploy React App to GitHub Pages
+name: Deploy Vite React App to GitHub Pages
 
 on:
   push:
     branches:
-      - main # Dispara o workflow sempre que houver um push para o branch 'main'
+      - main # Altere para 'master' se o seu branch principal for 'master'
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # Usa a última versão do Ubuntu para rodar o job
-    permissions:
-      contents: write # Permissão essencial para o workflow escrever no repositório (criar gh-pages)
-      pages: write    # Permissão para gerenciar o GitHub Pages
-      id-token: write # Permissão para obter o token de identidade (necessário para o Pages)
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository # Passo 1: Clona o repositório
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js # Passo 2: Configura o ambiente Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20' # Define a versão do Node.js a ser usada (versão LTS mais recente)
+          node-version: '20' # Use a versão do Node.js que você prefere (20 é boa)
+          cache: 'npm' # Habilita cache para npm install
 
-      - name: Install Dependencies # Passo 3: Instala as dependências do projeto
+      - name: Install dependencies
         run: npm install
 
-      - name: Build Project # Passo 4: Constrói o aplicativo Vite para produção
-        run: npm run build
+      - name: Build React App with Vite
+        run: npm run build # Este comando roda o build do Vite
 
-      - name: Deploy to GitHub Pages # Passo 5: Publica o conteúdo da pasta 'dist' no GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Usa o token padrão do GitHub, agora com as permissões corretas
-          publish_dir: ./dist # Define a pasta 'dist' (gerada pelo build) como a fonte para publicação
-          publish_branch: gh-pages # Publica em um branch separado 'gh-pages'
-          # Opcional: force_orphan: true # Cria um histórico limpo para o branch gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # MUITO IMPORTANTE: Vite constrói para a pasta 'dist'
+          publish_branch: gh-pages # O branch onde o site será publicado
