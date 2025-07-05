@@ -2,18 +2,15 @@
   "name": "tasknexus-novo",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://roger7927.github.io/tasknexus-novo/", // <--- COLOQUE ESTA LINHA EXATAMENTE AQUI!
-  "type": "module", // Esta linha deve vir DEPOIS da homepage
+  "homepage": "https://roger7927.github.io/tasknexus-novo/",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    // ... Seus scripts aqui (NÃO ALTERE)
   },
   "dependencies": {
-    // ... suas dependências
+    // ... Suas dependências aqui (NÃO ALTERE)
   },
   "devDependencies": {
-    // ... suas dependências de desenvolvimento
+    // ... Suas devDependencies aqui (NÃO ALTERE)
   }
 }
